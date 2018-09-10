@@ -25,6 +25,21 @@
     /*
       misc styles, nothing to do with CSS variables
     */
+    :root{
+      --spacing:10px;
+      --base:#ffc600;
+      --blur:10px;
+    }
+
+    img{
+      filter:blur(var(--blur));
+      background:var(--base);
+      padding:var(--spacing);
+    }
+
+    .hl{
+      color: var(--base);
+    }
 
     body {
       text-align: center;
@@ -45,6 +60,19 @@
   </style>
 
   <script>
+  function func (){
+  var ctrls = document.querySelectorAll('.controls input');
+  var img = document.getElementsByTagName('img');
+  var hl = document.getElementsByClassName('hl');
+
+  img[0].style.padding = `${ctrls[0].value}px`;
+  img[0].style.filter = `blur(${ctrls[1].value}px)`;
+  img[0].style.background = ctrls[2].value;
+  hl[0].style.color= ctrls[2].value;
+
+}
+  window.addEventListener('change', func);
+
   </script>
 
 </body>
